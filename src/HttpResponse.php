@@ -3,8 +3,8 @@
 namespace Cody\LaravelDevelopTools;
 
 
+use Cody\LaravelDevelopTools\enum\ResponseEnum;
 use Cody\LaravelDevelopTools\exception\BusinessException;
-use Cody\LaravelHttpResponse\enum\ResponseEnum;
 
 trait HttpResponse
 {

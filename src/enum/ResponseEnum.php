@@ -1,6 +1,6 @@
 <?php
 
-namespace Cody\LaravelHttpResponse\enum;
+namespace Cody\LaravelDevelopTools\enum;
 
 class ResponseEnum
 {
