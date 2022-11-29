@@ -2,6 +2,7 @@
 
 namespace Cody\LaravelDevelopTools;
 
+use Cody\LaravelDevelopTools\services\FastMath;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelDevelopToolsProvider extends ServiceProvider
@@ -20,6 +21,10 @@ class LaravelDevelopToolsProvider extends ServiceProvider
         });
         $this->app->singleton('http-response', function () {
             return HttpResponse::class;
+        });
+
+        $this->app->singleton('fast-math', function () {
+            return new FastMath();
         });
     }
 }
