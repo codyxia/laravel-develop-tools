@@ -1,0 +1,18 @@
+{
+    "name": "cody/laravel-develop-tools",
+    "description": "laravel develop tools",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Cody\\LaravelDevelopTools\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "xiajianrong",
+            "email": "xiajianrong1221@163.com"
+        }
+    ],
+    "require": {}
+}
