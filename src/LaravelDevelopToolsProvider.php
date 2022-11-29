@@ -2,7 +2,6 @@
 
 namespace Cody\LaravelDevelopTools;
 
-use Cody\LaravelDevelopTools\services\FastMath;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelDevelopToolsProvider extends ServiceProvider

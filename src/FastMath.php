@@ -1,6 +1,6 @@
 <?php
 
-namespace Cody\LaravelDevelopTools\services;
+namespace Cody\LaravelDevelopTools;
 
 class FastMath
 {
