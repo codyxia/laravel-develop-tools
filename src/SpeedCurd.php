@@ -4,10 +4,7 @@ namespace Cody\LaravelDevelopTools;
 
 use Cody\LaravelDevelopTools\services\SearchService;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class SpeedCurd
 {
@@ -58,27 +55,5 @@ class SpeedCurd
     static public function CreateOrUpdateByAttribute(Builder $builder, $params)
     {
         return $builder->updateOrCreate($params['attribute'], $params['data']);
-    }
-
-    public static function ValidateUnique($table, $data, $parameter, $id, $where = [], $message = 'exists')
-    {
-        $messages = [
-            $parameter.'.unique' => $data[$parameter]."已存在",
-        ];
-        $validator = Validator::make($data, [
-            $parameter => [
-                Rule::unique($table)->ignore($id)->where(function ($query) use ($where) {
-                    if ($where) {
-                        foreach ($where as $k => $v) {
-                            $query = $query->where($k, $v);
-                        }
-                    }
-                    return $query;
-                })
-            ]
-        ], $messages);
-        if ($validator->fails()) {
-            throw new BadRequestHttpException($data[$parameter].$message);
-        }
     }
 }

@@ -15,15 +15,29 @@ class LaravelDevelopToolsProvider extends ServiceProvider
 
     public function register()
     {
+        /**
+         * 增删改查
+         */
         $this->app->singleton('speed-curd', function () {
             return new SpeedCurd();
         });
+        /**
+         * 格式化JSON返回数据
+         */
         $this->app->singleton('http-response', function () {
             return HttpResponse::class;
         });
-
+        /**
+         * 数学计算
+         */
         $this->app->singleton('fast-math', function () {
             return new FastMath();
+        });
+        /**
+         * 参数验证
+         */
+        $this->app->singleton('verify-request', function () {
+            return new VerifyRequest();
         });
     }
 }
