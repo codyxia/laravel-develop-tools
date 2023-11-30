@@ -19,7 +19,7 @@ class SpeedCurd
             if (str_contains($key, '|')) {//or 查询
                 $key_arr = explode('|', $key);
                 if (count($key_arr) != 2) {
-                    throw new BadRequestException('暂时只支持两个字段的or查询');
+                    throw new BadRequestException('只支持两个字段的or查询');
                 } else {
                     $builder = $builder->where(function ($query) use ($key_arr, $item) {
                         return SearchService::or($query, $key_arr, $item);
