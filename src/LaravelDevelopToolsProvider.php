@@ -39,5 +39,11 @@ class LaravelDevelopToolsProvider extends ServiceProvider
         $this->app->singleton('verify-request', function () {
             return new VerifyRequest();
         });
+        /**
+         * 数组工具
+         */
+        $this->app->singleton('super-arr', function () {
+            return new SuperArr();
+        });
     }
 }
