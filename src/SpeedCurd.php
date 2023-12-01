@@ -56,4 +56,15 @@ class SpeedCurd
     {
         return $builder->updateOrCreate($params['attribute'], $params['data']);
     }
+
+    /**
+     * @param Builder $builder
+     * @param $params
+     * @return bool
+     * 判断数据是否存在
+     */
+    public static function dataExists(Builder $builder,$params): bool
+    {
+        return $builder->where($params)->exists();
+    }
 }
