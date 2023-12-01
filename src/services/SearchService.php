@@ -31,6 +31,7 @@ class SearchService
                 });
                 break;
         }
+
         return $builder;
     }
 

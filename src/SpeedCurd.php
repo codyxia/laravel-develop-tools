@@ -9,11 +9,9 @@ use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 class SpeedCurd
 {
     /**
-     * @param  Builder  $builder
-     * @param $params
      * @return Builder|mixed
      */
-    static public function SearchLists(Builder $builder, $params)
+    public static function SearchLists(Builder $builder, $params)
     {
         foreach ($params as $key => $item) {
             if (str_contains($key, '|')) {//or 查询
@@ -41,29 +39,29 @@ class SpeedCurd
                 }
             }
         }
+
         return $builder;
     }
 
-    static public function CreateOrUpdateById(Builder $builder, $params)
+    public static function CreateOrUpdateById(Builder $builder, $params)
     {
         if (isset($params['id']) && $params['id'] != null) {
             return $builder->where('id', $params['id'])->update($params);
         }
+
         return $builder->create($params);
     }
 
-    static public function CreateOrUpdateByAttribute(Builder $builder, $params)
+    public static function CreateOrUpdateByAttribute(Builder $builder, $params)
     {
         return $builder->updateOrCreate($params['attribute'], $params['data']);
     }
 
     /**
-     * @param Builder $builder
-     * @param $params
      * @return bool
      * 判断数据是否存在
      */
-    public static function dataExists(Builder $builder,$params): bool
+    public static function dataExists(Builder $builder, $params): bool
     {
         return $builder->where($params)->exists();
     }

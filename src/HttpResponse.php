@@ -2,7 +2,6 @@
 
 namespace Cody\LaravelDevelopTools;
 
-
 use Cody\LaravelDevelopTools\enum\ResponseEnum;
 use Cody\LaravelDevelopTools\exception\BusinessException;
 
@@ -11,13 +10,13 @@ trait HttpResponse
     public function success($data = null)
     {
         [$code] = ResponseEnum::HTTP_OK;
+
         return response()->json([
             'status' => true,
-            'code'   => $code,
-            'data'   => $data,
+            'code' => $code,
+            'data' => $data,
         ]);
     }
-
 
     public function successPaginate($data)
     {
@@ -25,24 +24,20 @@ trait HttpResponse
     }
 
     /**
-     * @param $data
      * @return array
      */
     public function paginate($data)
     {
         return [
-            'total'      => $data->total(),
-            'items'      => $data->items(),
-            'additional' => $data->additional ?? null
+            'total' => $data->total(),
+            'items' => $data->items(),
+            'additional' => $data->additional ?? null,
         ];
     }
 
     /**
-     * @param  array  $codeResponse
-     * @param  string  $info
      * @throws BusinessException
      */
-
     public function throwBusinessException(array $codeResponse = ResponseEnum::SYSTEM_ERROR, string $info = '')
     {
         throw new BusinessException($codeResponse, $info);

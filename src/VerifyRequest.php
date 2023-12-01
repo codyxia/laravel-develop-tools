@@ -12,7 +12,7 @@ class VerifyRequest
     public static function unique($table, $data, $parameter, $id, $where = [], $message = '数据已存在')
     {
         $messages = [
-            $parameter.'.unique' => $data[$parameter]."已存在",
+            $parameter.'.unique' => $data[$parameter].'已存在',
         ];
         $validator = Validator::make($data, [
             $parameter => [
@@ -22,9 +22,10 @@ class VerifyRequest
                             $query = $query->where($k, $v);
                         }
                     }
+
                     return $query;
-                })
-            ]
+                }),
+            ],
         ], $messages);
         if ($validator->fails()) {
             throw new BusinessException(ResponseEnum::CLIENT_SAVE_DATA_EXIST, $message);

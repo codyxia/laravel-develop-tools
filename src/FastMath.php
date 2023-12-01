@@ -5,8 +5,6 @@ namespace Cody\LaravelDevelopTools;
 class FastMath
 {
     /**
-     * @param $number
-     * @param $decimal
      * @return float
      * 对小数取精度
      */
@@ -16,9 +14,6 @@ class FastMath
     }
 
     /**
-     * @param $number1
-     * @param $number2
-     * @param $decimal
      * @return float|int
      * 计算两个数字的平均数
      */
@@ -28,8 +23,6 @@ class FastMath
     }
 
     /**
-     * @param $number1
-     * @param $number2
      * @return float|int
      * 计算number1相对number2的变化幅度
      */
@@ -50,8 +43,8 @@ class FastMath
     /**
      * 计算$number2相对于$number1的百分比。
      *
-     * @param float $number1 分母
-     * @param float $number2 分子
+     * @param  float  $number1 分母
+     * @param  float  $number2 分子
      * @return float 返回百分比值
      */
     public static function calculatePercentage($number1, $number2)
@@ -60,6 +53,7 @@ class FastMath
         if ($number1 == 0) {
             return 0;
         }
+
         // 计算百分比
         return ($number2 / $number1) * 100;
     }

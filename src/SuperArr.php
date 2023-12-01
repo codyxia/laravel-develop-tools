@@ -10,16 +10,17 @@ class SuperArr
      */
     public static function createArrayWithKeyFromValue($inputArray, $valueKey)
     {
-        if (!is_array($inputArray)) {
+        if (! is_array($inputArray)) {
             throw new \Exception('error input array');
         }
         $newArr = [];
         foreach ($inputArray as $item) {
-            if (!in_array($item, $valueKey)) {
+            if (! in_array($item, $valueKey)) {
                 continue;
             }
             $newArr[$item[$valueKey]] = $item;
         }
+
         return $newArr;
     }
 }
