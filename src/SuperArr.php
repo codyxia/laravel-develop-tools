@@ -23,4 +23,27 @@ class SuperArr
 
         return $newArr;
     }
+
+    //传入一个数组和指定的判断条件 会将满足条件的数组元素重新生成一个数组返回
+    /**
+     * @throws \Exception
+     * $intputArray
+     * $condition
+     */
+    public static function createArrayWithCondition($inputArray, $condition)
+    {
+        if (! is_array($inputArray)) {
+            throw new \Exception('error input array');
+        }
+        $newArr = [];
+        foreach ($inputArray as $item) {
+            if (! $condition($item)) {
+                continue;
+            }
+            $newArr[] = $item;
+        }
+
+        return $newArr;
+    }
+    
 }

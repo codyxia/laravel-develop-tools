@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 
 class VerifyRequest
 {
+    //验证参数是否存在
     public static function unique($table, $data, $parameter, $id, $where = [], $message = '数据已存在')
     {
         $messages = [

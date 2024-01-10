@@ -10,6 +10,7 @@ class SpeedCurd
 {
     /**
      * @return Builder|mixed
+     * 查询列表
      */
     public static function SearchLists(Builder $builder, $params)
     {
@@ -42,7 +43,7 @@ class SpeedCurd
 
         return $builder;
     }
-
+    //根据id创建或更新数据
     public static function CreateOrUpdateById(Builder $builder, $params)
     {
         if (isset($params['id']) && $params['id'] != null) {
@@ -51,7 +52,7 @@ class SpeedCurd
 
         return $builder->create($params);
     }
-
+    //根据某个字段创建或更新数据
     public static function CreateOrUpdateByAttribute(Builder $builder, $params)
     {
         return $builder->updateOrCreate($params['attribute'], $params['data']);
