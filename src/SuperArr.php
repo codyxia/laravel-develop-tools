@@ -2,16 +2,18 @@
 
 namespace Cody\LaravelDevelopTools;
 
+use Exception;
+
 class SuperArr
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      * 传入一个数组和指定的value 会将value作为key 重新生成一个数组返回
      */
-    public static function createArrayWithKeyFromValue($inputArray, $valueKey)
+    public static function createArrayWithKeyFromValue($inputArray, $valueKey): array
     {
         if (! is_array($inputArray)) {
-            throw new \Exception('error input array');
+            throw new Exception('error input array');
         }
         $newArr = [];
         foreach ($inputArray as $item) {
@@ -26,14 +28,14 @@ class SuperArr
 
     //传入一个数组和指定的判断条件 会将满足条件的数组元素重新生成一个数组返回
     /**
-     * @throws \Exception
-     * $intputArray
+     * @throws Exception
+     * $inputArray
      * $condition
      */
-    public static function createArrayWithCondition($inputArray, $condition)
+    public static function createArrayWithCondition($inputArray, $condition): array
     {
         if (! is_array($inputArray)) {
-            throw new \Exception('error input array');
+            throw new Exception('error input array');
         }
         $newArr = [];
         foreach ($inputArray as $item) {
@@ -45,5 +47,5 @@ class SuperArr
 
         return $newArr;
     }
-    
+
 }
